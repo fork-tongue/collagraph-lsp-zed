@@ -1,9 +1,8 @@
 name = "Collagraph"
 grammar = "vue"
 path_suffixes = ["cgx"]
-line_comments = ["# ", "<!-- "]
 block_comment = ["<!--", "-->"]
-tab_size = 4
+tab_size = 2
 hard_tabs = false
 preferred_line_length = 88
 
@@ -23,6 +22,26 @@ brackets = [
 
 # Auto-close before these characters
 autoclose_before = ";:.,=}])"
+
+# Per-scope settings overrides
+
+# Python script sections use Python comment style
+[overrides.python]
+tab_size = 4
+hard_tabs = false
+line_comments = ["# "]
+
+# Template sections use HTML comment style (block comments only)
+[overrides.template]
+tab_size = 2
+hard_tabs = false
+block_comment = ["<!-- ", " -->"]
+
+# Style sections use CSS comment style
+[overrides.style]
+tab_size = 2
+hard_tabs = false
+block_comment = ["/*", "*/"]
 
 [language_servers]
 collagraph-lsp = {}
