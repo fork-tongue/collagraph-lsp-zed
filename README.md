@@ -143,15 +143,6 @@ This extension uses the official [tree-sitter-vue](https://github.com/tree-sitte
 
 This approach provides excellent coverage for template structure, directives, and HTML syntax, while allowing Python expressions to be highlighted within directives and interpolations.
 
-## Future Improvements
-
-- [ ] Custom tree-sitter grammar for perfect Python expression support
-- [ ] F-string highlighting with nested interpolations
-- [ ] Outline view for component structure
-- [ ] Debugger integration
-- [ ] Template directive completions
-- [ ] Component prop/event documentation on hover
-
 ## Related Projects
 
 - [Collagraph](https://github.com/fork-tongue/collagraph) - Python port of Vue.js
