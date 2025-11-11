@@ -5,7 +5,6 @@ Language support for [Collagraph](https://github.com/fork-tongue/collagraph) `.c
 ## Features
 
 - **Syntax Highlighting** - Full syntax highlighting for Collagraph templates, including:
-  - HTML/widget elements
   - Vue-style directives (v-if, v-for, v-bind, v-on, v-slot)
   - Python expressions in templates and script sections
   - Component bindings (`:prop`) and event handlers (`@event`)
@@ -16,7 +15,6 @@ Language support for [Collagraph](https://github.com/fork-tongue/collagraph) `.c
   - Code formatting
   - Python autocompletion
   - Semantic tokens
-  - Template-aware diagnostics
 
 - **Smart Editing** - Enhanced editing experience with:
   - Bracket matching for tags and interpolations
@@ -58,6 +56,8 @@ git clone https://github.com/fork-tongue/collagraph-lsp-zed.git
 2. Press `Cmd+Shift+X` (macOS) or `Ctrl+Shift+X` (Linux/Windows)
 3. Click "Install Dev Extension"
 4. Select folder where this repo was cloned
+
+After installation, whenever the plugin code is updated, all you need to do is click 'Rebuild' on the installed plugin.
 
 ## Usage
 
