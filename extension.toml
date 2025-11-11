@@ -1,0 +1,18 @@
+id = "collagraph"
+name = "Collagraph"
+description = "Language support for Collagraph .cgx single-file components with LSP integration"
+version = "0.1.0"
+schema_version = 1
+authors = ["Collagraph Contributors"]
+repository = "https://github.com/fork-tongue/collagraph-lsp-zed"
+
+[grammars.vue]
+repository = "https://github.com/tree-sitter-grammars/tree-sitter-vue"
+rev = "7e48557b903a9db9c38cea3b7839ef7e1f36c693"
+
+[language_servers.collagraph-lsp]
+name = "Collagraph LSP"
+languages = ["Collagraph"]
+
+[language_servers.collagraph-lsp.language_ids]
+Collagraph = "collagraph"

@@ -1,0 +1,42 @@
+<template>
+  <widget>
+    <label text="Enter a number:" />
+    <lineedit
+      :text="number"
+      @text_edited="handle_change"
+    />
+    <label
+      v-if="number == ''"
+      text="Please enter a number"
+    />
+    <label
+      v-else-if="int(number) > 0"
+      :text="f'{number} is positive'"
+    />
+    <label
+      v-else-if="int(number) < 0"
+      :text="f'{number} is negative'"
+    />
+    <label
+      v-else
+      text="The number is zero"
+    />
+    <label
+      :text="f'Length: {len(number)}'"
+      v-show="number != ''"
+    />
+  </widget>
+</template>
+
+<script>
+import collagraph as cg
+
+
+class ConditionalExample(cg.Component):
+    def init(self):
+        self.state["number"] = ""
+
+    def handle_change(self, text):
+        self.state["number"] = text
+</script>
+

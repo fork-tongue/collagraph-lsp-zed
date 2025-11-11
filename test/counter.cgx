@@ -1,0 +1,25 @@
+<template>
+  <widget>
+    <label :text="f'Count: {count}'" />
+    <button text="Increment" @clicked="increment" />
+    <button text="Decrement" @clicked="decrement" />
+    <button text="Reset" @clicked="reset" />
+  </widget>
+</template>
+
+<script lang="python">
+import collagraph as cg
+
+class Counter(cg.Component):
+    def init(self):
+        self.state["count"] = 0
+
+    def increment(self):
+        self.state["count"] += 1
+
+    def decrement(self):
+        self.state["count"] -= 1
+
+    def reset(self):
+        self.state["count"] = 0
+</script>

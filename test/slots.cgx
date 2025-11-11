@@ -1,0 +1,49 @@
+<template>
+  <Layout>
+    <template v-slot:header>
+      <label text="Application Header" />
+    </template>
+
+    <template v-slot:default>
+      <label text="Main content area" />
+      <label :text="f'Current count: {count}'" />
+      <button text="Increment" @clicked="increment" />
+    </template>
+
+    <template #footer>
+      <label text="Footer content" />
+      <label :text="f'Version {version}'" />
+    </template>
+  </Layout>
+</template>
+
+<script lang="python">
+import collagraph as cg
+
+class Layout(cg.Component):
+    def init(self):
+        pass
+
+    def render(self):
+        return """
+        <widget>
+          <slot name="header">
+            <label text="Default header" />
+          </slot>
+          <slot name="default">
+            <label text="Default content" />
+          </slot>
+          <slot name="footer">
+            <label text="Default footer" />
+          </slot>
+        </widget>
+        """
+
+class SlotExample(cg.Component):
+    def init(self):
+        self.state["count"] = 0
+        self.state["version"] = "1.0.0"
+
+    def increment(self):
+        self.state["count"] += 1
+</script>

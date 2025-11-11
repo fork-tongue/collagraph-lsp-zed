@@ -1,0 +1,42 @@
+<template>
+  <widget>
+    <label text="Todo List" />
+    <lineedit :text="new_item" @text_edited="handle_input" />
+    <button text="Add Item" @clicked="add_item" />
+
+    <widget v-if="len(items) > 0">
+      <label text="Items:" />
+      <widget v-for="idx, item in enumerate(items)">
+        <label :text="f'{idx + 1}. {item}'" />
+        <button
+          text="Delete"
+          @clicked="lambda: delete_item(idx)"
+        />
+      </widget>
+    </widget>
+
+    <label v-else text="No items yet" />
+
+    <label :text="f'Total: {len(items)} items'" />
+  </widget>
+</template>
+
+<script lang="python">
+import collagraph as cg
+
+class TodoList(cg.Component):
+    def init(self):
+        self.state["items"] = []
+        self.state["new_item"] = ""
+
+    def handle_input(self, text):
+        self.state["new_item"] = text
+
+    def add_item(self):
+        if item := self.state["new_item"].strip():
+            self.state["items"].append(item)
+            self.state["new_item"] = ""
+
+    def delete_item(self, idx):
+        del self.state["items"][idx]
+</script>
