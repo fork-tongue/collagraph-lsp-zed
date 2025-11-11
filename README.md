@@ -148,4 +148,4 @@ This approach provides excellent coverage for template structure, directives, an
 - [Collagraph](https://github.com/fork-tongue/collagraph) - Python port of Vue.js
 - [collagraph-lsp](https://github.com/fork-tongue/collagraph-lsp) - Language server for Collagraph
 - [ruff-cgx](https://github.com/fork-tongue/ruff-cgx) - Ruff integration for .cgx files
-- [zed-extensions/vue](https://github.com/zed-extensions/vue - Official Zed extension for Vue
+- [zed-extensions/vue](https://github.com/zed-extensions/vue) - Official Zed extension for Vue
