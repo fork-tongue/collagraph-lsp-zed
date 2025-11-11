@@ -30,7 +30,7 @@ impl CollagraphExtension {
         }
 
         Err(
-            "collagraph-lsp not found. Please install it using: uv pip install collagraph-lsp"
+            "collagraph-lsp not found. Please install it using: uv tool install collagraph-lsp"
                 .to_string(),
         )
     }
