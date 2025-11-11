@@ -48,20 +48,16 @@ The extension will automatically detect and use the language server when you ope
 
 ### From Source (Development)
 
+Prerequisites: install [rustup](https://rustup.rs). Zed will use that to compile the plugin.
+
 ```bash
 # Clone the repository
 git clone https://github.com/fork-tongue/collagraph-lsp-zed.git
-cd collagraph-lsp-zed
-
-# Build the extension
-cargo build --release
-
-# Install locally
-mkdir -p ~/.config/zed/extensions/collagraph
-cp -r . ~/.config/zed/extensions/collagraph
 ```
-
-Then reload Zed or restart the editor.
+1. Open Zed
+2. Press `Cmd+Shift+X` (macOS) or `Ctrl+Shift+X` (Linux/Windows)
+3. Click "Install Dev Extension"
+4. Select folder where this repo was cloned
 
 ## Usage
 
@@ -141,52 +137,11 @@ The extension uses `collagraph-lsp` with default settings. You can customize the
    - Open Extensions (`Cmd+Shift+X` / `Ctrl+Shift+X`)
    - Verify "Collagraph" is listed and enabled
 
-### Syntax highlighting not working
-
-**Problem**: `.cgx` files appear as plain text.
-
-**Solutions**:
-
-1. Verify the file extension is `.cgx` (not `.py` or `.vue`)
-2. Reload Zed after installing the extension
-3. Check the language mode indicator in the status bar shows "Collagraph"
-
-### Python expressions not highlighted
-
-**Problem**: Python code in templates appears without syntax highlighting.
-
-This is a known limitation of using tree-sitter-vue with Python injections. The highlighting may not be perfect for all Python constructs (like f-strings with complex nested expressions). Consider this a trade-off of the MVP approach.
-
-For better Python expression highlighting, a custom tree-sitter grammar would be needed (see [tree-sitter implementation plan](#future-improvements)).
-
-## Development
-
-### Building from Source
-
-```bash
-# Build the extension
-cargo build --release
-
-# Run tests (if any)
-cargo test
-```
-
-### Testing Locally
-
-```bash
-# Copy to Zed extensions directory
-mkdir -p ~/.config/zed/extensions/collagraph
-cp -r . ~/.config/zed/extensions/collagraph
-
-# Reload Zed
-# Quit and restart Zed, or reload extensions
-```
-
 ### Tree-sitter Grammar
 
 This extension uses the official [tree-sitter-vue](https://github.com/tree-sitter-grammars/tree-sitter-vue) grammar (the same grammar used by the [official Zed Vue extension](https://github.com/zed-extensions/vue)) for template parsing, with Python language injections for expressions.
 
-This approach provides excellent coverage for template structure, directives, and HTML syntax, while allowing Python expressions to be highlighted within directives and interpolations. For perfect Python expression highlighting (especially complex f-strings with nested interpolations), a custom `tree-sitter-collagraph` grammar would be beneficial in the future.
+This approach provides excellent coverage for template structure, directives, and HTML syntax, while allowing Python expressions to be highlighted within directives and interpolations.
 
 ## Future Improvements
 
@@ -197,33 +152,9 @@ This approach provides excellent coverage for template structure, directives, an
 - [ ] Template directive completions
 - [ ] Component prop/event documentation on hover
 
-## Contributing
-
-Contributions are welcome! Please:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-For major changes, please open an issue first to discuss the proposed changes.
-
 ## Related Projects
 
 - [Collagraph](https://github.com/fork-tongue/collagraph) - Python port of Vue.js
 - [collagraph-lsp](https://github.com/fork-tongue/collagraph-lsp) - Language server for Collagraph
 - [ruff-cgx](https://github.com/fork-tongue/ruff-cgx) - Ruff integration for .cgx files
-
-## Acknowledgments
-
-This extension builds on the excellent work of the [Zed Vue extension](https://github.com/zed-extensions/vue) team. We use the same [tree-sitter-vue](https://github.com/tree-sitter-grammars/tree-sitter-vue) grammar maintained by the tree-sitter-grammars organization, with Python-specific language injections adapted for Collagraph's Python-based templates.
-
-## License
-
-MIT License - see [LICENSE](LICENSE) file for details.
-
-## Support
-
-- Report issues: [GitHub Issues](https://github.com/fork-tongue/collagraph-lsp-zed/issues)
-- Collagraph documentation: [Collagraph Docs](https://github.com/fork-tongue/collagraph)
-- Zed documentation: [Zed Docs](https://zed.dev/docs)
+- [zed-extensions/vue](https://github.com/zed-extensions/vue - Official Zed extension for Vue
